@@ -6,6 +6,9 @@ function App() {
     console.log(counter)
     setcounter(counter+1)
   }
+  let removevalue=()=>{
+    setcounter(counter-1)
+  }
   return (
     <>
     <h1>chai aur code</h1>
@@ -13,7 +16,9 @@ function App() {
     <button
     onClick={addvalue}
     >add value{counter}</button>
-    <button>remove value{counter}</button>
+    <button
+    onClick={removevalue}
+    >remove value{counter}</button>
     </>
   )
 }
