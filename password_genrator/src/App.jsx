@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,6 @@ function App() {
   const [characters, setCharacters] = useState(false);
   const [password, setPassword] = useState("");
   const passwordRef = useRef(null);
-
   const generatePassword = useCallback(() => {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     if (numbers) str += "0123456789";
@@ -18,15 +17,13 @@ function App() {
       const index = Math.floor(Math.random() * str.length);
       pass += str.charAt(index);
     }
-
     setPassword(pass);
-  }, [length, numbers, characters]);
-
+  }, [length, numbers, characters,setPassword])
   const copyPassword = () => {
     passwordRef.current.select();
     window.navigator.clipboard.writeText(password);
   };
-
+ useEffect(()=>{generatePassword()},[length, numbers, characters,setPassword])
   return (
     <div className="wrapper">
       <div className="card">
