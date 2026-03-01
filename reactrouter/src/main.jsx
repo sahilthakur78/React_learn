@@ -9,6 +9,7 @@ import Home from './components/home/home.jsx'
 const router=createBrowserRouter([
   {
  path:'/',
+ element:<layout/>
  
  children:[
   {
@@ -17,6 +18,7 @@ const router=createBrowserRouter([
   },
   {
     path:"about",
+    element:<about/>
 
   }
 ]
